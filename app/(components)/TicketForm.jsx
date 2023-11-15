@@ -22,7 +22,7 @@ const TicketForm = () => {
     category: "Hardware Problem",
   };
 
-  const [formData, setFormData] = iseState(startingTicketData);
+  const [formData, setFormData] = useState(startingTicketData);
 
   return (
     <div className="flex justify-center">
