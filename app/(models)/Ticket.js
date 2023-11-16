@@ -1,7 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
-mongoose.connect(process.env.MONGODB_URI);
-mongoose.Promise = grobal.Promise;
+mongoose.connect(process.env.MONGODB_URI).catch((error) => console.log(error));
+mongoose.connection.on("error", (err) => {
+  console.log(err);
+});
+mongoose.Promise = global.Promise;
 
 const ticketSchema = new Schema(
   {
