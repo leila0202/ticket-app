@@ -18,9 +18,11 @@ const TicketForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const res = await fetch("/api/Tickets", {
       method: "POST",
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ formData }),
+
       "conent-type": "application/json",
     });
 
@@ -61,7 +63,7 @@ const TicketForm = () => {
           value={formData.title}
         />
 
-        <label>Desription</label>
+        <label>Description</label>
         <textarea
           id="description"
           name="description"
