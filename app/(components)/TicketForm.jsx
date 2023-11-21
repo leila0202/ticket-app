@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const TicketForm = () => {
+const TicketForm = ({ ticket }) => {
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -43,7 +43,7 @@ const TicketForm = () => {
     category: "Hardware Problem",
   };
 
-  const [formData, setFormData] = useState(startingTicketData);
+  const [formData, setFormData] = useState(ticket);
 
   return (
     <div className="flex justify-center">
@@ -52,7 +52,9 @@ const TicketForm = () => {
         method="post"
         onSubmit={handleSubmit}
       >
-        <h3>Create a new Ticket:</h3>
+        <h3>{`${
+          ticket._id === "new" ? "Create a new Ticket:" : "Edit the Ticket:"
+        }`}</h3>
         <label>Title</label>
         <input
           id="title"
