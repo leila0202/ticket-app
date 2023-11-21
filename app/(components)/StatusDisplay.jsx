@@ -1,6 +1,5 @@
 const StatusDisplay = ({ status }) => {
   let statusColor = "";
-  console.log(status);
   switch (status) {
     case "done":
       statusColor = "bg-green-200";
